@@ -129,7 +129,6 @@
       onclick={toggleMode}
       class="text-blue-600 hover:text-blue-800 text-sm"
     >
-      {isLogin ? "Don't have an account? Register" : 'Already have an account? Login'}
     </button>
   </div>
 </div>
