@@ -17,10 +17,6 @@ export const DELETE: RequestHandler = async ({ request, params }) => {
       return json({ error: 'Invalid token' }, { status: 401 });
     }
 
-    // Check if user is admin
-    if (decoded.role !== 'admin') {
-      return json({ error: 'Access denied. Admin role required.' }, { status: 403 });
-    }
 
     const locationId = params.id;
     if (!locationId) {
@@ -79,10 +75,6 @@ export const PUT: RequestHandler = async ({ request, params }) => {
       return json({ error: 'Invalid token' }, { status: 401 });
     }
 
-    // Check if user is admin
-    if (decoded.role !== 'admin') {
-      return json({ error: 'Access denied. Admin role required.' }, { status: 403 });
-    }
 
     const locationId = params.id;
     if (!locationId) {

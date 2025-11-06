@@ -17,10 +17,6 @@ export const GET: RequestHandler = async ({ request }) => {
       return json({ error: 'Invalid token' }, { status: 401 });
     }
 
-    // Check if user is admin
-    if (decoded.role !== 'admin') {
-      return json({ error: 'Access denied. Admin role required.' }, { status: 403 });
-    }
 
     const locations = await prisma.location.findMany({
       orderBy: {
@@ -49,10 +45,6 @@ export const POST: RequestHandler = async ({ request }) => {
       return json({ error: 'Invalid token' }, { status: 401 });
     }
 
-    // Check if user is admin
-    if (decoded.role !== 'admin') {
-      return json({ error: 'Access denied. Admin role required.' }, { status: 403 });
-    }
 
     const { name, address, email } = await request.json();
 

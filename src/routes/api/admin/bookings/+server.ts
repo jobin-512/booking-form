@@ -18,10 +18,6 @@ export const GET: RequestHandler = async ({ url, request }) => {
       return json({ error: 'Invalid token' }, { status: 401 });
     }
 
-    // Check if user is admin
-    if (decoded.role !== 'admin') {
-      return json({ error: 'Access denied. Admin role required.' }, { status: 403 });
-    }
 
     // Get date filters from query parameters
     const startDate = url.searchParams.get('startDate');
@@ -90,10 +86,6 @@ export const DELETE: RequestHandler = async ({ request }) => {
       return json({ error: 'Invalid token' }, { status: 401 });
     }
 
-    // Check if user is admin
-    if (decoded.role !== 'admin') {
-      return json({ error: 'Access denied. Admin role required.' }, { status: 403 });
-    }
 
     const { bookingId } = await request.json();
 
