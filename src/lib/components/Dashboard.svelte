@@ -65,8 +65,7 @@
         </div>
         <div class="flex items-center space-x-4">
           <span class="text-gray-700">Welcome, {user?.name || user?.email}</span>
-          {#if user?.role === 'admin'}
-            <button
+          <button
               onclick={toggleBookingManagement}
               class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
@@ -78,6 +77,7 @@
             >
               {showLocationManagement ? 'Hide Locations' : 'Manage Locations'}
             </button>
+          {#if user?.role === 'admin'}
             <button
               onclick={toggleUserManagement}
               class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
